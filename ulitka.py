@@ -8,7 +8,19 @@ def filter_fastq(
     gc_bounds=(0, 100),
     length_bounds=(0, 2**32),
     quality_threshold: float = 0
-):
+) -> None:
+    """
+    Filters FASTQ reads by GC content, length and average quality.
+
+    Arguments:
+    input_fastq: path to the input FASTQ file
+    output_fastq: name of the output FASTQ file
+    gc_bounds: allowed GC content range or upper bound
+    length_bounds: allowed sequence length range or upper bound
+    quality_threshold: minimum average Phred quality
+
+    Returns None.
+    """
     os.makedirs("filtered", exist_ok=True)
     output_path = os.path.join("filtered", output_fastq)
 
